@@ -31,6 +31,7 @@ Take a look at the `index.php` file for more examples.
 
 ### Themes
 The theme is located in the `themes/` folder. Currently there is no way to switch the theme. So there is only a theme called `default`.
+The theme currently uses Bulma.io as a lightweight CSS framework: https://bulma.io/
 
 ### Components
 A component is just a reusable snippet of PHP code that will render different parts of a page or a layout. For example the navbar and the footer are just components used by a layout. Use the `Component::render` method to print out the results:
