@@ -9,7 +9,7 @@ I have created a little Docker test setup.
 1. Build the image: ```docker build -t simplephppages docker/image```
 
 2. Spin up a container
-	* On Linux / Mac or Windows Powershell use: ```docker run -d -p 80:80 -v $(pwd):/var/www/html --name simplephppages simplephprouter```
+	* On Linux / Mac or Windows Powershell use: ```docker run -d -p 80:80 -v $(pwd):/var/www/html --name simplephppages simplephppages```
 	* On Windows CMD use ```docker run -d -p 80:80 -v %cd%:/var/www/html --name simplephppages simplephppages```
 
 3. Open your browser and navigate to http://localhost
