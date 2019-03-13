@@ -1,8 +1,8 @@
 <?PHP Portal::send('title', 'Homepage') ?>
 
 <?=Component::render('hero', [
-    'title'=> 'simplePHPPages',
-    'subtitle'=> 'Basic concepts for low level PHP page building'
+    'title'=> 'Imprint',
+    'subtitle'=> 'Lorem Ipsum'
 ]) ?>
 
 <?=Component::render('text', [

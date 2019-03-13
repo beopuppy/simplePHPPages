@@ -1,11 +1,8 @@
-<?PHP Portal::in('title', 'Contact form') ?>
+<?PHP Portal::send('title', 'Contact') ?>
 
-<?=Content::render('titles','contact','hero'); ?>
+<?=Component::render('hero', [
+    'title'=> 'Contact',
+    'subtitle'=> 'Contact us'
+]) ?>
 
-<section class="container content">
-
-	<h1 class="title">Contact</h1>
-
-	<?=Component::render('contactform') ?>
-
-</section>
+<?=Component::render('contactform') ?>

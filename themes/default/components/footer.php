@@ -1,5 +1,5 @@
 <footer class="footer">
-  <div class="container content">
+  <div class="container">
     <p>
       <?=$text ?>
     </p>

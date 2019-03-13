@@ -6,6 +6,13 @@ class Route{
   private static $pathNotFound = null;
   private static $methodNotAllowed = null;
 
+  /**
+    * Function used to add a new route
+    * @param string $expression    Route string or expression
+    * @param callable $function    Function to call when route with allowed method is found
+    * @param string|array $method  Either a string of allowed method or an array with string values
+    *
+    */
   public static function add($expression, $function, $method = 'get'){
     array_push(self::$routes,Array(
       'expression' => $expression,
@@ -22,13 +29,17 @@ class Route{
     self::$methodNotAllowed = $function;
   }
 
-  public static function run($basepath = '/'){
+  public static function run($basepath = '/', $case_matters = false, $trailing_slash_matters = false){
 
     // Parse current url
     $parsed_url = parse_url($_SERVER['REQUEST_URI']);//Parse Uri
 
-    if(isset($parsed_url['path'])){
-      $path = $parsed_url['path'];
+    if(isset($parsed_url['path']) && $parsed_url['path'] != '/'){
+	  if($trailing_slash_matters){
+		$path = $parsed_url['path'];
+	  }else{
+		$path = rtrim($parsed_url['path'], '/');
+	  }
     }else{
       $path = '/';
     }
@@ -57,26 +68,29 @@ class Route{
 
       // echo $route['expression'].'<br/>';
 
-      // Check path match	
-      if(preg_match('#'.$route['expression'].'#',$path,$matches)){
+      // Check path match
+      if(preg_match('#'.$route['expression'].'#'.($case_matters ? '':'i'),$path,$matches)){
 
         $path_match_found = true;
 
-        // Check method match
-        if(strtolower($method) == strtolower($route['method'])){
+        // Cast allowed method to array if it's not one already, then run through all methods
+        foreach ((array)$route['method'] as $allowedMethod) {
+            // Check method match
+            if(strtolower($method) == strtolower($allowedMethod)){
 
-          array_shift($matches);// Always remove first element. This contains the whole string
+                array_shift($matches);// Always remove first element. This contains the whole string
 
-          if($basepath!=''&&$basepath!='/'){
-            array_shift($matches);// Remove basepath
-          }
+                if($basepath!=''&&$basepath!='/'){
+                    array_shift($matches);// Remove basepath
+                }
 
-          call_user_func_array($route['function'], $matches);
+                call_user_func_array($route['function'], $matches);
 
-          $route_match_found = true;
+                $route_match_found = true;
 
-          // Do not check other routes
-          break;
+                // Do not check other routes
+                break;
+            }
         }
       }
     }

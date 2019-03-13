@@ -2,26 +2,17 @@
 
 class Page{
 
-	public static function add($expression, $name, $layout='default', $arguments = []){
+	public static function render($name, $layout='default', $arguments = []) {
+		// Catch the page results and send them to the main portal
+		Portal::sendStart();
+		if(is_array($arguments)){
+			extract($arguments);
+		}
+		include('pages/'.$name.'.php');
+		Portal::sendEnd('main');
 
-		//foreach($arguments as $argument){
-
-		//}
-
-		Route::add($expression, function() use ($name, $layout) {
-
-			// Catch the page results and send them to the main portal
-			Portal::inStart();
-			include('pages/'.$name.'.php');
-			Portal::inEnd('main');
-
-			// Include the layout
-			include('themes/default/layouts/'.$layout.'.php');
-
-		});
-
-
-
+		// Include the layout
+		include('themes/default/layouts/'.$layout.'.php');
 	}
 
 }

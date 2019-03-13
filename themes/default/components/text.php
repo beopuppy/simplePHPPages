@@ -1,11 +1,11 @@
-<section class="container content">
+<section class="section is-medium">
 
-	<h1><?=$title ?></h1>
+	<div class="container">
 
-	<p><?=$text ?></p>
+		<h2 class="title"><?=$title ?></h2>
 
-	<script>
-		alert('');
-	</script>
+		<p><?=nl2br($text) ?></p>
+
+	</div>
 
 </section>

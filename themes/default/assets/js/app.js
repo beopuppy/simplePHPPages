@@ -1,46 +1,29 @@
 
 /*
-  Helper functions
+  Navbar
 */
-function addClass (elementId, className) {
-    var element = document.getElementById(elementId);
-    element.classList.add(className);
-}
+document.addEventListener('DOMContentLoaded', () => {
 
-function removeClass (elementId, className) {
-  var element = document.getElementById(elementId);
-  element.classList.remove(className);
-}
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-function replaceElement (elementId, contents) {
-	var element = document.getElementById(elementId);
+  // Check if there are any navbar burgers
+  if ($navbarBurgers.length > 0) {
 
-	var newEl = document.createElement(element.tagName);
-	newEl.innerHTML = contents;
-  newEl.setAttribute("id", elementId);
+    // Add a click event on each of them
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
 
-	element.parentNode.replaceChild(newEl, element);
-}
+        // Get the target from the "data-target" attribute
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
 
-function request (url, data, method, onSuccess) {
-	var request = new XMLHttpRequest();
-  request.onload = function (e) {
-    if (request.readyState === 4) {
-      if (request.status === 200) {
-        onSuccess(request.responseText)
-      } else {
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
 
-      }
-    }
-  };
-	request.open(method, url, true);
-	request.send(data);
-}
+      });
+    });
+  }
 
-function sendFormReplace (formId, elementId) {
-	var formElement = document.getElementById(formId);
-	var data = new FormData(formElement);
-	request(formElement.getAttribute('action'), data, formElement.getAttribute('method'), function(response){
-    replaceElement(elementId,response);
-  })
-}
+});

@@ -3,20 +3,16 @@
 
 	<head>
 
-		<title>Default Page - <?=Portal::out('title') ?></title>
+		<title>Default Page - <?=Portal::receive('title') ?></title>
 
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="themes/default/assets/css/bulma-0.7.2/css/bulma.min.css">
+		<link rel="stylesheet" href="/themes/default/assets/css/bulma-0.7.2/css/bulma.min.css">
 
-		<?=Portal::out('css') ?>
+		<?=Portal::receive('css') ?>
 
-		<script src="themes/default/assets/js/app.js"></script>
-
-		<?=Portal::out('js') ?>
-
-		<?=Portal::out('head') ?>
+		<?=Portal::receive('head') ?>
 
 	</head>
 
@@ -24,11 +20,13 @@
 
 		<?=Component::render('navigation') ?>
 
-		<?=Portal::out('main') ?>
+		<?=Portal::receive('main') ?>
 
-		<?=Content::render('footer','general','footer'); ?>
+		<?=Component::render('footer', ['text' => 'Copyright 2019']) ?>
 
-		<?=Portal::out('modals') ?>
+		<script src="/themes/default/assets/js/app.js"></script>
+
+		<?=Portal::receive('js') ?>
 
 	</body>
 
