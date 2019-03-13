@@ -1,5 +1,5 @@
 # SimplePHPPages
-This project provides simple and basic concepts for PHP pages with no dependencies. It includes ideas and samples for routing, pages, layouts, components and portals.
+This project provides simple and basic concepts for PHP pages with no dependencies. It includes ideas and samples for routing, pages, themes, layouts, components and portals.
 
 ## Test setup with Docker
 I have created a little Docker test setup.
