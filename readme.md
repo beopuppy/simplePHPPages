@@ -43,11 +43,11 @@ Components are useful for pages. They will give them some structure and will kee
 ```
 
 ## Portals
-Portals provide a very powerful way of sending contents inside your themes and pages to different locations. Imagine the following situation: A snippet of PHP-Code (for example a gallery slider) will output some HTML to your Page. But it needs some JavaScript. You don't want to render this together with your slider. You want to render the Javascript into the footer of your HTML document. This is where portals come into play: Just define a portal receive point somewhere in your theme or page:
+Portals provide a very powerful way of sending contents inside your themes and pages to different locations. Imagine the following situation: A snippet of PHP-Code (for example a gallery slider) will output some HTML to your Page. But it needs some JavaScript. You don't want to render this together with your slider. You want to render the Javascript into the footer of your HTML document. This is where portals come into play: Just define a portal receive point somewhere in your theme:
 ```
 <?=Portal::receive('js') ?>
 ```
-Then, from a page, for example, you can send contents to this point:
+Then, from a page or a component, for example, you can send contents to this point:
 ```
 <?PHP Portal::send('js', '<script src="/themes/default/assets/js/slider.js"></script>') ?>
 ```
