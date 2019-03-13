@@ -35,6 +35,14 @@ Take a look at the `index.php` file for more examples.
 The theme is located in the `themes/` folder. Currently there is no way to switch the theme. So there is only a theme called `default`.
 The theme currently uses Bulma.io as a lightweight CSS framework: https://bulma.io/
 
+### Layouts
+A layout is just a wrapper for a page. Each page will be wrapped with a layout. By calling `Page::render('home');` the page `home` will be automatically wrapped with the `default` layout. Layouts are located in the themes `/layouts` folder. You can switch the layout by creating a new file (`two_columns.php` for example) in `layouts` and providing its name as an argument:
+```
+Page::render('home','two_columns');
+```
+Take a look at the default.php layout file. You can see, that this file provides the whole outer HTML markup. The only important code snippet inside each layout file is `<?=Portal::receive('main') ?>`;
+Every page will send its contents to this location.
+
 ### Components
 A component is just a reusable snippet of PHP code that will render different parts of a page or a layout. For example the navbar and the footer are just components used by a layout. Use the `Component::render` method to print out the results:
  ```
