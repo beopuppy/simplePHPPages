@@ -1,4 +1,7 @@
 # Simple PHP Pages
+
+<span>Warning: This project is currently not being actively developed. It is only supposed to provide some ideas. The project may be completely removed in the future.</span>
+
 This project provides simple and basic concepts for PHP pages with no dependencies. It includes ideas and samples for routing, pages, themes, layouts, components and portals.
 
 This project does not include a separate templating engine because PHP already provides everything you need.
