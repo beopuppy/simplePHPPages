@@ -1,38 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<section class="container">
-
-	<nav class="navbar" role="navigation" aria-label="main navigation">
-	  <div class="navbar-brand">
-
-		<a class="navbar-item" href="/">
-		  <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-		</a>
-
-		<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-		  <span aria-hidden="true"></span>
-		  <span aria-hidden="true"></span>
-		  <span aria-hidden="true"></span>
-		</a>
-	  </div>
-
-	  <div id="navbarBasicExample" class="navbar-menu">
-
-		<div class="navbar-end">
-
-			<a href="/" class="navbar-item">
-			Home
-		  </a>
-
-		  <a href="/contact" class="navbar-item">
-			Contact
-		  </a>
-
-			<a href="/imprint" class="navbar-item">
-			Imprint
-		  </a>
-
-		</div>
-
-	  </div>
-	</nav>
-</section>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home">Car Inventory</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/info">Auction Info</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/gallery">Photo Gallery</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="mailto:georgia@ftlauderdaleauction.com">Contact Auction</a>
+                    </li>
+                    
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Car Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                
+                <ul class="navbar-nav ml-2">
+                    <li class="nav-item">
+                    <?php if(!$userInfo): ?>
+                        <a href="/login.php" class="btn btn-outline-primary my-2 my-sm-0">Login</a>
+                    <?php else: ?>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <?php echo $userInfo['nickname']; ?>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="/logout.php">Log Out</a>
+                                
+                            </div>
+                        </div>
+                    <?php endif ?>
+                    
+                        
+                    </li>
+                </ul>
+            </div>
+        </nav>

@@ -1,7 +1,7 @@
 <footer class="footer">
-  <div class="container">
-    <p>
-      <?=$text ?>
-    </p>
-  </div>
+  <nav class="navbar fixed-bottom navbar-dark bg-dark">
+      <span class="navbar-text small text-light ml-auto mr-auto">
+        <?=$text ?>
+      </span>
+  </nav>
 </footer>

@@ -1,0 +1,12 @@
+body {
+    background-color: #106885 !important;
+}
+img.img-top {
+    width: 100% !important;
+}
+
+.content {
+    min-height: 500px;
+    background-color: #ffffff;
+    padding: 15px;
+}
