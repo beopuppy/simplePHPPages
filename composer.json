@@ -1,0 +1,14 @@
+{
+    "name": "beopu/simple-php-pages",
+    "authors": [
+        {
+            "name": "Markus Geiger",
+            "email": "beopuppy@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "vlucas/phpdotenv": "^5.2",
+        "auth0/auth0-php": "^7.0"
+    }
+}
